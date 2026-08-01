@@ -2,10 +2,19 @@ html {
 	cursor: url(imagens/mata_mosquito.png) 30 30, auto;
 }
 
+html,
 body {
-	background-image: url(imagens/bg.jpg);
-	background-repeat: no-repeat;
-	background-size: 100%;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background-image: url(imagens/bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
 }
 
 .mosquito1 {
