@@ -11,14 +11,12 @@ let jogoAtivo = true;
 var nivel = window.location.search
 nivel = nivel.replace('?', '')
 
+//Quanto menor o tempo, mais difícil o jogo
 if (nivel === 'normal') {
-	//1500
 	criaMosquitoTempo = 1500
 } else if (nivel === 'dificil') {
-	//1000
 	criaMosquitoTempo = 1000
 } else if (nivel === 'chucknorris') {
-	//750
 	criaMosquitoTempo = 750
 }
 
@@ -107,26 +105,6 @@ function posicaoRandomica() {
 	mosquito.style.top = posicaoY + 'px';
 
 	mosquitoAtual = mosquito;
-
-	// mosquito.onclick = function () {
-
-	// 	this.onclick = null;
-
-	// 	// Este mosquito não é mais o ativo
-	// 	mosquitoAtual = null;
-
-	// 	// Mostra a sprite do mosquito morto
-	// 	this.style.backgroundPosition = "right center";
-
-	// 	// Executa a animação
-	// 	this.classList.add("morrendo");
-
-	// 	// Remove apenas quando a animação terminar
-	// 	setTimeout(() => {
-	// 		this.remove();
-	// 	}, 450);
-
-	// }
 
 	mosquito.onclick = function () {
 
