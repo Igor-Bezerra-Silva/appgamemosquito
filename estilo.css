@@ -4,18 +4,21 @@ html {
 
 html,
 body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
 }
 
 body {
-    background-image: url(imagens/bg.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    min-height: 100vh;
+	background: url(imagens/bg.jpg) no-repeat center center;
+	background-size: cover;
+	overflow: hidden;
 }
+
+/*===============================
+RESPONSIVO MOBILE Desktop
+================================*/
 
 .mosquito1 {
 	width: 50px;
@@ -46,7 +49,7 @@ body {
 	padding: 10px;
 	left: 0px;
 	bottom: 0px;
-	border-top:solid 1px #fff;
+	border-top: solid 1px #fff;
 	background-color: #fff;
 	opacity: 0.7
 }
@@ -59,4 +62,68 @@ body {
 	float: left;
 	font-size: 20px;
 	font-weight: bold;
+}
+
+/*===============================
+RESPONSIVO MOBILE
+================================*/
+
+.logo-jogo {
+	max-width: 100%;
+	height: auto;
+}
+
+.btn-jogar {
+	max-width: 220px;
+	margin: auto;
+}
+
+@media (max-width:768px) {
+
+	body {
+		background-position: 25% center;
+	}
+
+	.logo-jogo {
+		width: 220px;
+	}
+
+	.form-control-lg {
+		font-size: 16px;
+		height: 46px;
+	}
+
+	.btn-jogar {
+		width: 220px;
+	}
+
+	.mosquito1 {
+		width: 55px;
+		height: 55px;
+	}
+
+	.mosquito2 {
+		width: 70px;
+		height: 70px;
+	}
+
+	.mosquito3 {
+		width: 85px;
+		height: 85px;
+	}
+
+	.painel {
+		width: 100%;
+		left: 0;
+		bottom: 0;
+		padding: 10px;
+	}
+
+	.vidas img {
+		width: 28px;
+	}
+
+	.cronometro {
+		font-size: 15px;
+	}
 }

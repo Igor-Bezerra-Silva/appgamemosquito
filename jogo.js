@@ -9,10 +9,10 @@ var criaMosquitoTempo = 1500
 var nivel = window.location.search
 nivel = nivel.replace('?', '')
 
-if(nivel === 'normal') {
+if (nivel === 'normal') {
 	//1500
 	criaMosquitoTempo = 1500
-} else if(nivel === 'dificil') {
+} else if (nivel === 'dificil') {
 	//1000
 	criaMosquitoTempo = 1000
 } else if (nivel === 'chucknorris') {
@@ -29,18 +29,18 @@ function ajustaTamanhoPalcoJogo() {
 
 ajustaTamanhoPalcoJogo()
 
-var cronometro = setInterval(function() {
+var cronometro = setInterval(function () {
 
 	tempo -= 1
 
-	if(tempo < 0) {
+	if (tempo < 0) {
 		clearInterval(cronometro)
 		clearInterval(criaMosca)
 		window.location.href = 'vitoria.html'
 	} else {
 		document.getElementById('cronometro').innerHTML = tempo
 	}
-	
+
 }, 1000)
 
 
@@ -48,11 +48,11 @@ function posicaoRandomica() {
 
 
 	//remover o mosquito anterior (caso exista)
-	if(document.getElementById('mosquito')) {
+	if (document.getElementById('mosquito')) {
 		document.getElementById('mosquito').remove()
 
 		//console.log('elemento selecionado foi: v' + vidas)
-		if(vidas > 3) {
+		if (vidas > 3) {
 
 			window.location.href = 'fim_de_jogo.html'
 		} else {
@@ -63,7 +63,8 @@ function posicaoRandomica() {
 	}
 
 	var posicaoX = Math.floor(Math.random() * largura) - 90
-	var posicaoY = Math.floor(Math.random() * altura) - 90
+	var alturaPainel = window.innerWidth <= 768 ? 80 : 0;
+	var posicaoY = Math.floor(Math.random() * (altura - alturaPainel)) - 90;
 
 	posicaoX = posicaoX < 0 ? 0 : posicaoX
 	posicaoY = posicaoY < 0 ? 0 : posicaoY
@@ -78,7 +79,7 @@ function posicaoRandomica() {
 	mosquito.style.top = posicaoY + 'px'
 	mosquito.style.position = 'absolute'
 	mosquito.id = 'mosquito'
-	mosquito.onclick = function() {
+	mosquito.onclick = function () {
 		this.remove()
 	}
 
@@ -87,27 +88,55 @@ function posicaoRandomica() {
 }
 
 function tamanhoAleatorio() {
-	var classe = Math.floor(Math.random() * 3)
-	
-	switch(classe) {
-		case 0:
-			return 'mosquito1'
-		
-		case 1:
-			return 'mosquito2'
 
-		case 2:
-			return 'mosquito3'
+	var mobile = window.innerWidth <= 768;
+
+	var classe = Math.floor(Math.random() * 4);
+
+	if (mobile) {
+
+		switch (classe) {
+
+			case 0:
+				return 'mosquito1';
+
+			case 1:
+				return 'mosquito1';
+
+			case 2:
+				return 'mosquito2';
+
+			case 3:
+				return 'mosquito3';
+
+		}
+
+	} else {
+
+		switch (Math.floor(Math.random() * 3)) {
+
+			case 0:
+				return 'mosquito1';
+
+			case 1:
+				return 'mosquito2';
+
+			case 2:
+				return 'mosquito3';
+
+		}
+
 	}
+
 }
 
 function ladoAleatorio() {
 	var classe = Math.floor(Math.random() * 2)
-	
-	switch(classe) {
+
+	switch (classe) {
 		case 0:
 			return 'ladoA'
-		
+
 		case 1:
 			return 'ladoB'
 
